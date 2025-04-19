@@ -1,32 +1,30 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../utils/supabaseClient'
 
 export default function SignupPage() {
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault()
     console.log("Signing up with:", email, username, password)
-    // TODO: ADD LOGIC HERE
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    })
+    if (error) console.log(error)
   }
   return (
     <div>
-      <h2>Login page</h2>
+      <h2>Signup page</h2>
       <form onSubmit={handleSubmit}>
         <input
           type='email'
           placeholder='Enter your email here'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type='username'
-          placeholder='Enter your username here'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input
@@ -38,7 +36,7 @@ export default function SignupPage() {
         />
         <button type="submit">Login</button>
       </form>
-      <div>Don't have an account yet? <Link to="/signup">Sign up here!</Link></div>
+      <div>Already have an account? <Link to="/signup">Log in here!</Link></div>
     </div>
   )
 }
