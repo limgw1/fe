@@ -1,25 +1,35 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { supabase } from '../utils/supabaseClient'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../context/AuthContext'
 
 export default function SignupPage() {
   const [email, setEmail] = useState("")
-  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const {SignUpUser} = useAuthContext()
 
-  async function handleSubmit(e){
+  const navigate = useNavigate()
+
+  async function handleSignUp(e){
     e.preventDefault()
-    console.log("Signing up with:", email, username, password)
-    const { data, error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-    })
-    if (error) console.log(error)
+    setIsLoading(true)
+    try {
+      const result = await SignUpUser(email, password)
+      if (result.success) {navigate('/account')}
+    }
+    catch(error){
+      setError(error.message)
+    }
+    finally{
+      setIsLoading(false)
+    }
   }
+  
   return (
     <div>
       <h2>Signup page</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSignUp}>
         <input
           type='email'
           placeholder='Enter your email here'
@@ -34,9 +44,11 @@ export default function SignupPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
-      <div>Already have an account? <Link to="/signup">Log in here!</Link></div>
+      {isLoading ? <div>Loading...</div> : null }
+      {error ? <div>Error: {error}</div> : null }
+      <div>Already have an account? <Link to="/login">Log in here!</Link></div>
     </div>
   )
 }

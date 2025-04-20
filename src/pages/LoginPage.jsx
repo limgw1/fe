@@ -1,20 +1,33 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../utils/supabaseClient'
+import { useAuthContext } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [error, setError] = useState()
+  const [isLoading, setIsLoading] = useState(false)
+  const {session, LoginUser} = useAuthContext()
+
+  const navigate = useNavigate()
 
   async function handleLogin(e){
     e.preventDefault()
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    })
-    if (error) console.log(error)
+    setIsLoading(true)
+    try {
+      const result = await LoginUser(email, password)
+      if (result.success) {navigate('/account')}
+    }
+    catch(error){
+      setError(error.message)
+    }
+    finally{
+      setIsLoading(false)
+    }
   }
-
+  
   return (
     <div>
       <h2>Login page</h2>
@@ -35,6 +48,8 @@ export default function LoginPage() {
         />
         <button type="submit">Login</button>
       </form>
+      {isLoading ? <div>Loading...</div> : null }
+      {error ? <div>Error: {error}</div> : null }
       <div>Don't have an account yet? <Link to="/signup">Sign up here!</Link></div>
     </div>
   )
