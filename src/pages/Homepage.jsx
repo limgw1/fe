@@ -5,10 +5,12 @@ import { useAuthContext } from '../context/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 import './Homepage.css'
+import MainContainer from '../components/MainContainer'
 
 export default function Homepage() {
   const {session, LogoutUser} = useAuthContext()
   const [isLoading, setIsLoading] = useState(false)
+  const [hidden, setHidden] = useState(false);
   const navigate = useNavigate()
 
   async function handleLogout(e){
@@ -27,11 +29,13 @@ export default function Homepage() {
   }
 
   return (
-    <div className='main-homepage'>
-      <div className='sidebar'>
+    <div className='homepage'>
+      <nav className={`sidebar ${hidden ? 'hidden' : ''}`} onClick={(e) => setHidden(!hidden)}>
         <Sidebar/>
+      </nav>
+      <div className='main-container'>
+        <MainContainer/>
       </div>
-      <div className='main-container'>Welcome, {session?.user?.email}!</div>
     </div>
   )
 }

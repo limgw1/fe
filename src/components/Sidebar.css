@@ -1,14 +1,34 @@
-.sidebar {
-  width: 25.6vw;
-  height: 100vh;
-  background-color: #ccc;
-  transition: transform 0.3s ease;
-  transform: translateX(0);
-  position: fixed;
-  left: 0;
-  top: 0;
+.sidebar__item{
+  width: 100%;
 }
 
-.sidebar.hidden {
-  transform: translateX(-100%);
+.sidebar__navbar{
+  width: 100%;
+  padding: 1em;
+  background-color: #dcdcdc;
+}
+
+.sidebar__navbar__container{
+  display: flex;
+}
+
+.profile-pic{
+  justify-content: right;
+}
+
+.non-pfp{
+  justify-content: left;
+}
+
+.sidebar__subitems{
+  display: grid;
+}
+
+.sidebar__item.title{
+  padding: 1em;
+  background-color: #dcdcdc;
+}
+
+.sidebar__item__subitem{
+  padding: 0.5em 1em;
 }
