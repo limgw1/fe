@@ -6,6 +6,7 @@ import PageNotFound from './pages/PageNotFound'
 import SignupPage from './pages/SignupPage'
 import { AuthContextProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import Homepage from './pages/Homepage'
 
 function App() {
 
@@ -16,12 +17,18 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="login" element={<LoginPage/>}/>
           <Route path="signup" element={<SignupPage/>}/>
-          <Route path="account" element={
+          <Route path="home" element={
+            <ProtectedRoute>
+              <Homepage/>
+            </ProtectedRoute>
+          }
+          />
+          {/* <Route path="account" element={
             <ProtectedRoute>
               <AccountPage/>
             </ProtectedRoute>
           }
-          />
+          /> */}
           <Route path="*" element={<PageNotFound/>}/>
         </Routes>
       </AuthContextProvider>

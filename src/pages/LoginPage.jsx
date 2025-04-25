@@ -18,7 +18,7 @@ export default function LoginPage() {
     setIsLoading(true)
     try {
       const result = await LoginUser(email, password)
-      if (result.success) {navigate('/account')}
+      if (result.success) {navigate('/home')}
     }
     catch(error){
       setError(error.message)

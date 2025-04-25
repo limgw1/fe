@@ -1,8 +1,12 @@
+import React from 'react'
+import Sidebar from '../components/Sidebar'
 import { useState } from 'react'
 import { useAuthContext } from '../context/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-export default function AccountPage() {
+import './Homepage.css'
+
+export default function Homepage() {
   const {session, LogoutUser} = useAuthContext()
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
@@ -23,11 +27,11 @@ export default function AccountPage() {
   }
 
   return (
-    <div>
-      <div>{session?.user?.email}'s Profile Page</div>
-      <Navigate to={ !session ? '/login' : null }/>
-      { isLoading ? <div>Logging out...</div> : null }
-      <button onClick={(e) => handleLogout(e)}>Log Out</button>
+    <div className='main-homepage'>
+      <div className='sidebar'>
+        <Sidebar/>
+      </div>
+      <div className='main-container'>Welcome, {session?.user?.email}!</div>
     </div>
   )
 }

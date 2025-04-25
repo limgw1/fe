@@ -1,0 +1,16 @@
+.main-homepage {
+  margin: 0;
+  display: flex;
+}
+
+.sidebar {
+  width: 25.6vw;
+  height: 100vh;
+  background-color: #ccc; /* Example */
+}
+
+.main-container {
+  width: calc((100vw - 25.6vw));
+  height: 100vh;
+  background-color: #eee; /* Example */
+}

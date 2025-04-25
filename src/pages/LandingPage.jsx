@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/LandingNavbar'
 import HeroSection from '../components/HeroSection'
 import "./pages.css"
 
