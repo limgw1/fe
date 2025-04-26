@@ -6,7 +6,6 @@
 
 .sidebar {
   display: grid;
-  max-width: 23vh;
 }
 
 .sidebar.hidden {

@@ -1,23 +1,32 @@
+.sidebar__items{
+  margin: 0px;
+  padding: 0px;
+}
+
 .sidebar__item{
   width: 100%;
 }
 
 .sidebar__navbar{
   width: 100%;
-  padding: 1em;
   background-color: #dcdcdc;
+  padding: 5px 5px;
 }
 
 .sidebar__navbar__container{
   display: flex;
 }
 
-.profile-pic{
-  justify-content: right;
-}
+
+/* .profile-pic{
+  display: inline-block;
+} */
 
 .non-pfp{
-  justify-content: left;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100% - 40px); 
 }
 
 .sidebar__subitems{
