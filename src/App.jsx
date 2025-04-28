@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage'
 import { AuthContextProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import Homepage from './pages/Homepage'
+import AddTaskModal from './components/AddTaskModal'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="login" element={<LoginPage/>}/>
           <Route path="signup" element={<SignupPage/>}/>
+          <Route path="dev" element={<AddTaskModal/>}/>
           <Route path="home" element={
             <ProtectedRoute>
               <Homepage/>
