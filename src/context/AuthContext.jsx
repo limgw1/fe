@@ -5,14 +5,19 @@ const AuthContext = createContext()
 
 function AuthContextProvider({children}){
   const [session, setSession] = useState(null)
+  const [authLoading, setAuthLoading] = useState(false)
 
   useEffect(() => {
+    setAuthLoading(true)
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
+      setAuthLoading(false)
     })
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
+      setAuthLoading(false)
     })
+    
   }, [])
   
 
@@ -49,11 +54,20 @@ function AuthContextProvider({children}){
     return {success: true, data}
   }
 
+  async function GetSession() {
+    const session = await supabase.auth.getSession()
+    return session
+  }
+
   return(
     <AuthContext.Provider value={{session, 
+      setSession,
       LoginUser, 
       SignUpUser, 
-      LogoutUser}}
+      LogoutUser,
+      GetSession,
+      authLoading
+    }}
     >
       {children}
     </AuthContext.Provider>
