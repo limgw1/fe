@@ -5,9 +5,10 @@ import AccountPage from './pages/AccountPage'
 import PageNotFound from './pages/PageNotFound'
 import SignupPage from './pages/SignupPage'
 import { AuthContextProvider } from './context/AuthContext'
-import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedRoute from './routes/ProtectedRoute'
 import Homepage from './pages/Homepage'
 import AddTaskModal from './components/AddTaskModal'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="dev" element={<AddTaskModal/>}/>
           <Route path="home" element={
             <ProtectedRoute>
+              <Navbar/>
               <Homepage/>
             </ProtectedRoute>
           }
