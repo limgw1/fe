@@ -5,14 +5,14 @@ export default function Sidebar() {
   return (
     <ul className='sidebar__items'>
       <li className="sidebar__navbar">
-        <nav className='sidebar__navbar__container'>
+        <div className='sidebar__navbar__container'>
           <div className='profile-pic'>PFP</div>
           <ul className='non-pfp'>
             <li className='non-pfp__item'>Username</li>
             <li className='non-pfp__item'>Icon</li>
             <li className='non-pfp__item'>Icon</li>
           </ul>
-        </nav>
+        </div>
       </li>
       <li className="sidebar__item">
         <ul className='sidebar__subitems'>

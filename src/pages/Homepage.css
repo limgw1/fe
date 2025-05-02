@@ -1,7 +1,7 @@
 .homepage {
   margin: 0;
   display: grid;
-  grid-template-columns: auto 1fr;
+  /* grid-template-columns: auto 1fr; */
 }
 
 .sidebar {

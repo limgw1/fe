@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 
 import './Homepage.css'
 import MainContainer from '../components/MainContainer'
+import Navbar from '../components/Navbar'
 
 export default function Homepage() {
   const {session, LogoutUser} = useAuthContext()
@@ -30,12 +31,12 @@ export default function Homepage() {
 
   return (
     <div className='homepage'>
-      <nav className={`sidebar ${hidden ? 'hidden' : ''}`} onClick={(e) => setHidden(!hidden)}>
+      {/* <aside className={`sidebar ${hidden ? 'hidden' : ''}`} onClick={(e) => setHidden(!hidden)}>
         <Sidebar/>
-      </nav>
-      <div className='main-container'>
+      </aside> */}
+      {/* <div className='main-container'>
         <MainContainer/>
-      </div>
+      </div> */}
     </div>
   )
 }

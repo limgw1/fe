@@ -7,7 +7,6 @@ export default function MainContainer() {
   const {session} = useAuthContext()
   const [authLoading, setAuthLoading] = useState(false)
   
-  console.log("Session in maincontainer:", session)
   return (
     <div>
       <h1 className='main-title'>TODAY</h1>
