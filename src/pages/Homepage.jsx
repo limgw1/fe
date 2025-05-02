@@ -15,6 +15,25 @@ export default function Homepage() {
 
   return (
     <div className='homepage'>
+      <div className='grid-container'>
+        <div className='box-1'><h2>Main Dashboard</h2></div>
+        <div className='box-2'><h2>To-Dos</h2></div>
+        <div className='box-3'><h2>Habit</h2></div>
+        <div className='box-4'>
+          <h2>Projects</h2>
+          <ul className='project-list'>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+            <li className='project-item'>Project Item</li>
+          </ul>
+        </div>
+      </div>
       {/* <aside className={`sidebar ${hidden ? 'hidden' : ''}`} onClick={(e) => setHidden(!hidden)}>
         <Sidebar/>
       </aside> */}

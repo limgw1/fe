@@ -1,7 +1,7 @@
-.homepage {
+/* .homepage {
   margin: 0;
   display: grid;
-  /* grid-template-columns: auto 1fr; */
+  grid-template-columns: auto 1fr;
 }
 
 .sidebar {
@@ -10,10 +10,58 @@
 
 .sidebar.hidden {
   width: 1vh;
-  /* background-color: red; */
 }
 
 .main-container {
   height: 100vh;
-  background-color: #eee; /* Example */
+  background-color: #eee;
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.homepage {
+  /* background-color: red; */
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
+}
+
+.box-1 { grid-area: box-1; }
+.box-2 { grid-area: box-2; }
+.box-3 { grid-area: box-3; }
+.box-4 { grid-area: box-4; }
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1em;
+  grid-template-areas: 
+  "box-1 box-1 box-1 box-1 box-4 box-4"
+  "box-1 box-1 box-1 box-1 box-4 box-4"
+  "box-1 box-1 box-1 box-1 box-4 box-4"
+  "box-2 box-2 box-3 box-3 box-4 box-4"
+  "box-2 box-2 box-3 box-3 box-4 box-4"
+  "box-2 box-2 box-3 box-3 box-4 box-4"
+  ;
+}
+
+.grid-container > div {
+  border: black solid 1px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.project-item{
+  list-style: none;
+  height: 10em;
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+  border: black solid 1px;
+  background-color: palegreen;
 }
