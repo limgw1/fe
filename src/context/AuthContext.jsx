@@ -27,7 +27,8 @@ function AuthContextProvider({children}){
       console.error("There was a problem with logging out: ", error)
       return {success: false, error}
     }
-    return {success: true, data}
+    setSession(null)
+    return {success: true}
   }
 
   async function LoginUser(email, password){
