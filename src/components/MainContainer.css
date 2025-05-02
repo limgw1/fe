@@ -1,0 +1,10 @@
+.task-list{
+    display: grid;
+    background: #aaaaaa;
+    justify-items: center;
+}
+
+.main-title{
+    text-align: center;
+}
+

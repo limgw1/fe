@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useAuthContext } from '../context/AuthContext'
+import TaskItem from './TaskItem'
 import './MainContainer.css';
 
 export default function MainContainer() {
@@ -9,66 +10,25 @@ export default function MainContainer() {
   console.log("Session in maincontainer:", session)
   return (
     <div>
-      <div>Welcome, {session?.user?.email}!</div>
+      <h1 className='main-title'>TODAY</h1>
       <div className='task-list'>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
-        <div>Task: Do something</div>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
+        <TaskItem/>
       </div>
     </div>
   )
