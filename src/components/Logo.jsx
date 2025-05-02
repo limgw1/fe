@@ -3,10 +3,11 @@ import React from 'react'
 import LogoSVG from "../assets/Logo.svg"
 import "./Logo.css"
 
-export default function Logo({size=20, text=true}) {
+export default function Logo({size=50, text=true}) {
   return (
     <div>
         <img 
+            className='logo__image'
             src={LogoSVG} 
             alt="Logo"
             style={{width: `${size}px`, height:`${size}px`}}

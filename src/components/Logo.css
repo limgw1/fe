@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
+.logo__image{
+  position: relative;
+  top: 0.3em;
+}
 .logo-text{
+  position: relative;
+  bottom: 0.15em;
+  padding: 0.2em;
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
   color: #42394A;
 }
