@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
-import AccountPage from './pages/AccountPage'
+import ComingSoon from './pages/ComingSoon'
 import PageNotFound from './pages/PageNotFound'
 import SignupPage from './pages/SignupPage'
 import { AuthContextProvider } from './context/AuthContext'
@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="login" element={<LoginPage/>}/>
           <Route path="signup" element={<SignupPage/>}/>
+          <Route path="coming-soon" element={<ComingSoon/>}/>
           <Route path="dev" element={<AddTaskModal/>}/>
           <Route path="home" element={
             <ProtectedRoute>
@@ -34,6 +35,7 @@ function App() {
           }
           /> */}
           <Route path="*" element={<PageNotFound/>}/>
+
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>

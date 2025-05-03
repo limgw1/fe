@@ -34,10 +34,9 @@ export default function Navbar() {
     <nav className="navbar">
       <ul className="navbar__list">
         <li className="navbar__item left"><Logo/></li>
-        <li className="navbar__item left">Welcome, Guowei</li>
-        <li className="navbar__item push">Task Manager</li>
-        <li className="navbar__item ">Learning Assistant</li>
-        <li className="navbar__item ">Help</li>
+        <li className="navbar__item"><Link to="/home">Task Manager</Link></li>
+        <li className="navbar__item"><Link to="/coming-soon">Learning Assistant</Link></li>
+        <li className="navbar__item"><Link to="/coming-soon">Help</Link></li>
         { !session ? <li className="navbar__item"><Link to="/login">Login</Link></li> : <li className="navbar__item" onClick={(e) => handleLogout(e)}>Log Out</li>}
         { !session ? <li className="navbar__item"><Link to="/login">Sign Up</Link></li> : null }
       </ul>
